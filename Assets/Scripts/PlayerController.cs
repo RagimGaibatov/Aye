@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip crashSound;
 
+    private float superDashSpeed = 1.3f;
+
     private float score = 0;
 
     private float copyDashSpeed;
@@ -50,13 +52,14 @@ public class PlayerController : MonoBehaviour
             counterJump--;
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && gameOver == false)
         {
-            MoveLeft.dashSpeed = 1.5f;
+            MoveLeft.dashSpeed = superDashSpeed;
             playerAnim.speed = 2f;
-            score += 25 * Time.deltaTime;
+            score += 20 * Time.deltaTime * superDashSpeed;
+            superDashSpeed += 0.02f * Time.deltaTime;
         }
-        else if (Input.GetKeyUp(KeyCode.R))
+        else if (Input.GetKeyUp(KeyCode.R) && gameOver == false)
         {
             MoveLeft.dashSpeed = copyDashSpeed;
             playerAnim.speed = copyAnimSpeed;

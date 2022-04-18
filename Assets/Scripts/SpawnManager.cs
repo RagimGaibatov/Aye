@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstaclePrefab;
 
-    private Vector3 spawnPos = new Vector3(30, 0, 0);
+    private Vector3 spawnPos = new Vector3(35, 0, 0);
     private PlayerController playerControllerScript;
     private int indexOfPrefab;
 

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca26fe9d8ece4d34dbcce41ea27c1124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 10
   leftBound: -15
 --- !u!65 &473761682
 BoxCollider:
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca26fe9d8ece4d34dbcce41ea27c1124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 13
   leftBound: -15
 --- !u!54 &1021852279
 Rigidbody:
