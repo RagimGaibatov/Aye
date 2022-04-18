@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private float superDashSpeed = 1.3f;
 
-    private float score = 0;
+    public float score = 0;
 
     private float copyDashSpeed;
     private float copyAnimSpeed;
@@ -56,14 +56,13 @@ public class PlayerController : MonoBehaviour
         {
             MoveLeft.dashSpeed = superDashSpeed;
             playerAnim.speed = 2f;
-            score += 20 * Time.deltaTime * superDashSpeed;
+            score += Time.deltaTime * Mathf.Pow(superDashSpeed, 5);
             superDashSpeed += 0.02f * Time.deltaTime;
         }
         else if (Input.GetKeyUp(KeyCode.R) && gameOver == false)
         {
             MoveLeft.dashSpeed = copyDashSpeed;
             playerAnim.speed = copyAnimSpeed;
-            Debug.Log(score);
         }
     }
 
@@ -84,7 +83,6 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetInteger("DeathType_int", 1);
             playerAudio.PlayOneShot(crashSound, 1.0f);
             dirtParticle.Stop();
-            Debug.Log(score);
         }
     }
 }
