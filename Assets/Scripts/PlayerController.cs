@@ -11,8 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource playerAudio;
     [SerializeField] private ParticleSystem explosionParticle;
     [SerializeField] private ParticleSystem dirtParticle;
-    [SerializeField] float jumpForce = 10f;
-    [SerializeField] private float gravityModifier = 2;
+    [SerializeField] float jumpSpeed;
 
 
     [SerializeField] private AudioClip jumpSound;
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
-        Physics.gravity *= gravityModifier;
+
         copyDashSpeed = MoveLeft.dashSpeed;
         copyAnimSpeed = playerAnim.speed;
     }
@@ -44,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !gameOver && counterJump > 0)
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerRb.velocity = new Vector3(0, jumpSpeed, 0);
 
             playerAnim.SetTrigger("Jump_trig");
             dirtParticle.Stop();
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour
             explosionParticle.Play();
             playerAnim.SetInteger("DeathType_int", 1);
             playerAudio.PlayOneShot(crashSound, 1.0f);
-            dirtParticle.Stop();
+            dirtParticle.gameObject.SetActive(false);
         }
     }
 }

@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473761684, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
       propertyPath: speed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1021852280, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
       propertyPath: speed
@@ -159,13 +159,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473761684, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
       propertyPath: speed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1021852280, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
       propertyPath: speed
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1021852278, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
 --- !u!4 &4239657648496358649 stripped
 Transform:
