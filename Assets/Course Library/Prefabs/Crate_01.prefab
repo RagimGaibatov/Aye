@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   leftBound: -15
+  obstacleSettings: {fileID: 0}
 --- !u!65 &473761682
 BoxCollider:
   m_ObjectHideFlags: 0

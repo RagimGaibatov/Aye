@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip crashSound;
 
-    private float superDashSpeed = 1.3f;
 
     public float score = 0;
 
-    private float copyDashSpeed;
+    private float speedScore = 1.3f;
+
     private float copyAnimSpeed;
 
     public bool gameOver;
@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
-
-        copyDashSpeed = MoveLeft.dashSpeed;
         copyAnimSpeed = playerAnim.speed;
     }
 
@@ -53,14 +51,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R) && gameOver == false)
         {
-            MoveLeft.dashSpeed = superDashSpeed;
-            playerAnim.speed = 2f;
-            score += Time.deltaTime * Mathf.Pow(superDashSpeed, 5);
-            superDashSpeed += 0.02f * Time.deltaTime;
+            playerAnim.speed = speedScore;
+            score += Time.deltaTime * Mathf.Pow(speedScore, 5);
+            speedScore += 0.015f * Time.deltaTime;
         }
         else if (Input.GetKeyUp(KeyCode.R) && gameOver == false)
         {
-            MoveLeft.dashSpeed = copyDashSpeed;
             playerAnim.speed = copyAnimSpeed;
         }
     }

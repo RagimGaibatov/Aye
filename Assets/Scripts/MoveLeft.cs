@@ -6,12 +6,15 @@ public class MoveLeft : MonoBehaviour
 {
     [SerializeField] private float speed = 10;
     [SerializeField] private float leftBound = -15;
+
     private PlayerController playerControllerScript;
-    public static float dashSpeed = 1f;
+    float dashSpeed = 1f;
+    private float copyDashSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
+        copyDashSpeed = dashSpeed;
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
@@ -26,6 +29,15 @@ public class MoveLeft : MonoBehaviour
         if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            dashSpeed = ObstacleSettings.Instance.SuperDashSpeed;
+        }
+        else if (Input.GetKeyUp(KeyCode.R))
+        {
+            dashSpeed = copyDashSpeed;
         }
     }
 }
